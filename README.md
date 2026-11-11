@@ -1,6 +1,15 @@
 # 🚗 Locadora de Veículos — Python
 
-Aplicação console de uma locadora de veículos, desenvolvida em **Python** com os paradigmas da **Programação Orientada a Objetos**.
+Aplicação console de uma locadora de veículos, desenvolvida em **Python** em duas versões: uma com **Programação Estruturada** e outra com **Programação Orientada a Objetos**.
+
+As duas versões fazem a mesma coisa e calculam os mesmos valores. A diferença está na forma de organizar o código:
+
+| | Estruturada | Orientada a Objetos |
+|---|---|---|
+| Dados | dicionários guardados em listas globais | objetos (`Carro`, `Moto`, `Cliente`, `Locacao`) |
+| Regras | funções soltas (`calcular_valor_aluguel(veiculo, dias)`) | métodos de cada classe (`veiculo.calcular_valor_aluguel(dias)`) |
+| Carro x Moto | `if veiculo["tipo"] == "carro"` | cada classe tem o seu próprio cálculo (polimorfismo) |
+| Arquivos | um único arquivo | um arquivo por classe |
 
 Projeto desenvolvido como trabalho acadêmico, seguindo o diagrama de classes e as regras de negócio definidos pelo grupo.
 
@@ -22,7 +31,9 @@ Projeto desenvolvido como trabalho acadêmico, seguindo o diagrama de classes e 
 
 ```
 LocadoraVeiculos/
-└── src/
+├── estruturado/
+│   └── locadora.py       # versão estruturada (funções + dicionários)
+└── orientado-objetos/
     ├── enums.py      # StatusVeiculo: DISPONIVEL, ALUGADO, MANUTENCAO / StatusLocacao: ATIVA, FINALIZADA
     ├── veiculo.py    # Veiculo (classe abstrata), Carro e Moto (herdam de Veiculo)
     ├── cliente.py
@@ -34,7 +45,7 @@ LocadoraVeiculos/
 
 ---
 
-## 🧩 Diagrama de classes
+## 🧩 Diagrama de classes (versão orientada a objetos)
 
 ```mermaid
 classDiagram
@@ -99,7 +110,7 @@ classDiagram
 
 ---
 
-## Pilares da Orientação a Objetos
+## Pilares da Orientação a Objetos (versão orientada a objetos)
 
 | Pilar | Onde aparece |
 |---|---|
@@ -137,10 +148,14 @@ classDiagram
 Pelo terminal, na pasta do projeto:
 
 ```bash
-python src/main.py
+# versão estruturada
+python estruturado/locadora.py
+
+# versão orientada a objetos
+python orientado-objetos/main.py
 ```
 
-Ou abra a pasta em uma IDE (PyCharm ou VS Code) e execute o arquivo `src/main.py`.
+Ou abra a pasta em uma IDE (PyCharm ou VS Code) e execute um desses arquivos.
 
 ---
 
